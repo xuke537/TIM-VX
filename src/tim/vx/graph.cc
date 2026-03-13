@@ -342,7 +342,7 @@ bool GraphImpl::Setup() {
   }
   vsi_nn_SetGraphFastMode(graph_, is_fast_mode);
 
-#if defined(ENABLE_PLATFORM)
+#if defined(ENABLE_PLATFORM) && !defined(VSI_DEVICE_SUPPORT)
   auto id = options_.getDeviceId();
   vxSetGraphAttribute(graph_->g, VX_GRAPH_DEVICE_INDEX_VIV, (void*)(&id),
                       sizeof(id));
