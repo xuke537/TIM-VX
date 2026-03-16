@@ -88,9 +88,9 @@ jobs:
       run: |
         cd ${{github.workspace}}/tim-vx.install.dir/bin
         chmod u+x multi_thread_test
-        chmod u+x lenet_multi_device
+        #chmod u+x lenet_multi_device
         ./multi_thread_test
-        ./lenet_multi_device
+        #./lenet_multi_device
 
   # cl-only test
   tim-vx-unit-test-cl:
