@@ -206,8 +206,10 @@ LiteNativeExecutorImpl::~LiteNativeExecutorImpl() {
      vsi_nn_ReleaseDevice(&sub_device_);
 #endif
   executor_count--;
-  if(executor_count <1)
+  if(executor_count <1) {
     vip_destroy();
+    LiteNativeDevice::vip_initialized = false;
+  }
 }
 
 bool LiteNativeExecutorImpl::Submit(const std::shared_ptr<IExecutable>& executable,
